@@ -23,8 +23,14 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:srcCompat="@drawable/ic_arrow_back_black_24dp"
-            tools:ignore="VectorDrawableCompat"
-            android:layout_marginBottom="120dp"/>
+            tools:ignore="VectorDrawableCompat"/>
+        <ImageView
+
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/logo"/>
 
         <ScrollView
             android:id="@+id/login_form"
@@ -104,7 +110,7 @@
                     style="?android:textAppearanceSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="30dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/sign_up_btn_selector"
                     android:textSize="20dp"

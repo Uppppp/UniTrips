@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TMSDemo</string>
+    <string name="app_name">UniTripS</string>
 
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="title_activity_sign_in">Sign in</string>
@@ -18,5 +18,6 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="confirmedPassword">Confirm Password</string>
     <string name="title_email">Email</string>
+    <string name="forgotPassword">Forgot your password?</string>
 
 </resources>

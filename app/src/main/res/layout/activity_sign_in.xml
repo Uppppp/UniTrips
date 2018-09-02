@@ -23,8 +23,13 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:srcCompat="@drawable/ic_arrow_back_black_24dp"
-            tools:ignore="VectorDrawableCompat"
-            android:layout_marginBottom="120dp"/>
+            tools:ignore="VectorDrawableCompat" />
+        <ImageView
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo"/>
 
         <ScrollView
             android:id="@+id/login_form"
@@ -73,7 +78,7 @@
                     style="?android:textAppearanceSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="30dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/sign_up_btn_selector"
                     android:textSize="20dp"
@@ -82,6 +87,15 @@
                     android:text="@string/title_activity_sign_in"
                     android:enabled="true"
                     android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:textSize="18dp"
+                    android:id="@+id/passwordRestTv"
+                    android:textColor="@color/textColorWhite"
+                    android:text="@string/forgotPassword"/>
 
             </LinearLayout>
         </ScrollView>
