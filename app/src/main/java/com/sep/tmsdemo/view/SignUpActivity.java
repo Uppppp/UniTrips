@@ -3,6 +3,7 @@ package com.sep.tmsdemo.view;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -30,6 +31,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +68,7 @@ public class SignUpActivity extends AppCompatActivity  {
     private View mProgressView;
     private View mLoginFormView;
     private ImageButton mBackButton;
+    private Button mCreateAccountBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +84,18 @@ public class SignUpActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 startActivity(getParentActivityIntent());
+            }
+        });
+
+        mCreateAccountBtn = findViewById(R.id.sign_up_button);
+        mCreateAccountBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUpActivity.this,SignInActivity.class
+                );
+                startActivity(intent);
+                Toast.makeText(getApplication(), (String)"Account create successful!",
+                        Toast.LENGTH_LONG).show();
             }
         });
 //        mPasswordView = (EditText) findViewById(R.id.SignUpPasswordTv);

@@ -30,7 +30,10 @@
         <activity
             android:name=".view.SignUpActivity"
             android:parentActivityName=".view.WelcomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" ></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".view.MainActivity"
+            android:label="@string/title_activity_main"></activity>
     </application>
 
 </manifest>

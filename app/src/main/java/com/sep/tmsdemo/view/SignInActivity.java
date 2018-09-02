@@ -72,6 +72,7 @@ public class SignInActivity extends AppCompatActivity{
 //    private View mLoginFormView;
     private ImageButton mBackBtn;
     private TextView mForgetPasswordTv;
+    private Button mSignInBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +98,14 @@ public class SignInActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 startActivity(getParentActivityIntent());
+            }
+        });
+        mSignInBtn = findViewById(R.id.sign_in_button);
+        mSignInBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignInActivity.this,MainActivity.class);
+                startActivity(intent);
             }
         });
 //
