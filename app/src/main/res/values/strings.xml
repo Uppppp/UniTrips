@@ -18,6 +18,7 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="confirmedPassword">Confirm Password</string>
     <string name="title_email">Email</string>
+    <string name="createAccount">Create UniTripS \n account</string>
     <string name="forgotPassword">Forgot your password?</string>
 
 </resources>

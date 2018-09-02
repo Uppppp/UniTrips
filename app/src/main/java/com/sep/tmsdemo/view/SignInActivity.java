@@ -71,6 +71,7 @@ public class SignInActivity extends AppCompatActivity{
 //    private View mProgressView;
 //    private View mLoginFormView;
     private ImageButton mBackBtn;
+    private TextView mForgetPasswordTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +87,13 @@ public class SignInActivity extends AppCompatActivity{
         mBackBtn = findViewById(R.id.backBtn);
         mBackBtn.setOnClickListener(new OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onClick(View v) {
+                startActivity(getParentActivityIntent());
+            }
+        });
+        mForgetPasswordTv = findViewById(R.id.passwordRestTv);
+        mForgetPasswordTv.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(getParentActivityIntent());
