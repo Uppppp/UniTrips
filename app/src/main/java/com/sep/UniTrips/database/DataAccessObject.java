@@ -1,12 +1,10 @@
-package com.sep.tmsdemo.database;
+package com.sep.UniTrips.database;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import com.sep.tmsdemo.model.User;
-
-import java.util.List;
+import com.sep.UniTrips.model.User;
 
 @Dao
 public interface DataAccessObject {

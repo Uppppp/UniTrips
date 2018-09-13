@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.WelcomeActivity"
+            android:name="com.sep.UniTrips.view.WelcomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,15 +24,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.SignInActivity"
-            android:parentActivityName=".view.WelcomeActivity"
+            android:name="com.sep.UniTrips.view.SignInActivity"
+            android:parentActivityName="com.sep.UniTrips.view.WelcomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".view.SignUpActivity"
-            android:parentActivityName=".view.WelcomeActivity"
+            android:name="com.sep.UniTrips.view.SignUpActivity"
+            android:parentActivityName="com.sep.UniTrips.view.WelcomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.sep.UniTrips.view.MainActivity"
             android:label="@string/title_activity_main"></activity>
     </application>
 

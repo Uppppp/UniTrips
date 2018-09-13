@@ -1,4 +1,4 @@
-package com.sep.tmsdemo.model;
+package com.sep.UniTrips.model;
 
 import android.arch.persistence.room.*;
 import android.support.annotation.*;

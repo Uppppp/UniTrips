@@ -1,4 +1,4 @@
-package com.sep.tmsdemo;
+package com.sep.UniTrips;
 
 import org.junit.Test;
 

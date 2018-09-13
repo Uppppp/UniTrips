@@ -1,4 +1,4 @@
-package com.sep.tmsdemo.view;
+package com.sep.UniTrips.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
