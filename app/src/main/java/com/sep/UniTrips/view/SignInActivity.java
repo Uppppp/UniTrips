@@ -1,17 +1,28 @@
 package com.sep.UniTrips.view;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.sep.tmsdemo.R;
 
 /**
@@ -37,14 +48,14 @@ public class SignInActivity extends AppCompatActivity{
 //     */
 //    private UserLoginTask mAuthTask = null;
 //
-//    // UI references.
-//    private AutoCompleteTextView mEmailView;
-//    private EditText mPasswordView;
-//    private View mProgressView;
-//    private View mLoginFormView;
+    // UI references.
+    private AutoCompleteTextView mEmailEt;
+    private EditText mPasswordEt;
+    private View mLoginFormView;
     private ImageButton mBackBtn;
     private TextView mForgetPasswordTv;
     private Button mSignInBtn;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +65,10 @@ public class SignInActivity extends AppCompatActivity{
 //        //Remove the status bar of the activity
 //        getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN , WindowManager.LayoutParams. FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sign_in);
-        // Set up the login form.
-//        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-//        populateAutoComplete();
+         //Set up the login form.
+        mAuth = FirebaseAuth.getInstance();
+        mEmailEt = (AutoCompleteTextView) findViewById(R.id.email);
+        mPasswordEt=findViewById(R.id.password);
         mBackBtn = findViewById(R.id.backBtn);
         mBackBtn.setOnClickListener(new OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
@@ -73,13 +85,6 @@ public class SignInActivity extends AppCompatActivity{
             }
         });
         mSignInBtn = findViewById(R.id.sign_in_button);
-        mSignInBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SignInActivity.this,MainActivity.class);
-                startActivity(intent);
-            }
-        });
 //
 //        mPasswordView = (EditText) findViewById(R.id.password);
 //        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -101,10 +106,18 @@ public class SignInActivity extends AppCompatActivity{
 //            }
 //        });
 //
-//        mLoginFormView = findViewById(R.id.login_form);
-//        //mProgressView = findViewById(R.id.login_progress);
+        mLoginFormView = findViewById(R.id.login_form);
+        mSignInBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                signIn();
+
+            }
+        });
     }
-//
+
+
 //    private void populateAutoComplete() {
 //        if (!mayRequestContacts()) {
 //            return;
@@ -357,5 +370,43 @@ public class SignInActivity extends AppCompatActivity{
 //            showProgress(false);
 //        }
 //    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        //check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
+    //UpdateUI according to the current user
+    private void updateUI(FirebaseUser currentUser){
+        //check if user is signed in (non-null)
+        if(currentUser!=null){
+            //update the view when the current user is signed in (non-null)
+            //pass the current user to the main activity and start the main activity
+        }
+    }
+    private void signIn(){
+
+        mAuth.signInWithEmailAndPassword(mEmailEt.getText().toString(),mPasswordEt.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if(!task.isSuccessful()){
+                    //login fail. feedback the user the error message
+                    Toast.makeText(SignInActivity.this, R.string.sign_fail_message,Toast.LENGTH_LONG).show();
+                    updateUI(null);
+                }else{
+                    //login success, update the ui with the signed-in user's information
+                    Log.d("LOGIN SUCCEFFUL","login successful");
+                    Toast.makeText(SignInActivity.this, "LOGIN SUCCESSFUL!",Toast.LENGTH_LONG).show();
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    updateUI(user);
+                }
+            }
+        });
+
+    }
 }
 

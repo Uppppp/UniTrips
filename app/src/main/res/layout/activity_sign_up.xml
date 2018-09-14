@@ -24,32 +24,30 @@
             android:background="@color/colorPrimary"
             app:srcCompat="@drawable/ic_arrow_back_black_24dp"
             tools:ignore="VectorDrawableCompat"/>
-        <ImageView
-
-            android:layout_gravity="left"
-            android:layout_marginLeft="20dp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/logo"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/textColorWhite"
-            android:textStyle="bold"
-            android:textSize="30dp"
-            android:text="@string/createAccount"/>
-
         <ScrollView
             android:id="@+id/login_form"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <LinearLayout
                 android:id="@+id/email_login_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+                <ImageView
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/logo"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColorWhite"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="@string/createAccount"/>
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -59,8 +57,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
-                        android:hint="@string/title_username"
-                        android:inputType="number"
+                        android:hint="@string/title_email"
+                        android:inputType="textEmailAddress"
                         android:maxLines="1"
                         android:singleLine="true" />
 
@@ -96,22 +94,6 @@
                         android:imeActionId="6"
                         android:imeOptions="actionUnspecified"
                         android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/SignUpEmailTv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/title_email"
-                        android:inputType="number"
-                        android:layout_marginRight="20dp"
                         android:maxLines="1"
                         android:singleLine="true" />
 
