@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.sep.tmsdemo.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 
     private Button mSignInBtn;
     private Button mSignUpBtn;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,7 @@ public class WelcomeActivity extends AppCompatActivity {
 //        //Remove the status bar of the activity
 //        getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN , WindowManager.LayoutParams. FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
+        mAuth = FirebaseAuth.getInstance();
         mSignInBtn = (Button) findViewById(R.id.signInBtn);
         mSignInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,5 +42,22 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        //check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
+    //UpdateUI according to the current user
+    private void updateUI(FirebaseUser currentUser){
+        //check if user is signed in (non-null)
+        if(currentUser!=null){
+            Intent intent = new Intent(WelcomeActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
     }
 }

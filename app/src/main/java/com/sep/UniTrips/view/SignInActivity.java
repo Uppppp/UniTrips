@@ -216,6 +216,7 @@ public class SignInActivity extends AppCompatActivity{
         return password.length() > 5;
     }
 
+    //the following code is the login progress async task and this part should be in the model base on the UI design.
 //    /**
 //     * Shows the progress UI and hides the login form.
 //     */
