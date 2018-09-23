@@ -25,7 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.sep.tmsdemo.R;
+import com.sep.UniTrips.R;
 
 /**
  * A login screen that offers login via username and password.
@@ -335,7 +335,9 @@ public class SignInActivity extends AppCompatActivity{
     private void updateUI(FirebaseUser currentUser){
         //check if user is signed in (non-null)
         if(currentUser!=null){
-            Intent intent = new Intent(SignInActivity.this,MainActivity.class);
+//            Intent intent = new Intent(SignInActivity.this,MainActivity.class);
+//            startActivity(intent);
+            Intent intent = new Intent(SignInActivity.this,Database_tester.class);
             startActivity(intent);
         }
     }

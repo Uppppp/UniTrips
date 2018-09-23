@@ -1,5 +1,8 @@
 <component name="CopyrightManager">
-  <settings default="copyright 2018">
+  <settings default="copyright">
+    <module2copyright>
+      <element module="All" copyright="copyright" />
+    </module2copyright>
     <LanguageOptions name="JAVA">
       <option name="fileTypeOverride" value="3" />
       <option name="separateBefore" value="true" />

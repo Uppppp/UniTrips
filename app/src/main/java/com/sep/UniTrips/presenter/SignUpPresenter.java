@@ -58,4 +58,10 @@ public class SignUpPresenter implements SignUpInterface.presenter {
         mTaskManager.attemptCreateAccount(email,password,confirmPassword);
     }
 
+    @Override
+    public void showSignUpError(String errorMessage) {
+        mSignUpActivity.showSignUpError(errorMessage);
+    }
+
+
 }

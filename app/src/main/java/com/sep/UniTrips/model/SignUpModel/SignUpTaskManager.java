@@ -4,17 +4,15 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.sep.UniTrips.presenter.SignUpPresenter;
-import com.sep.UniTrips.view.SignInActivity;
-import com.sep.tmsdemo.R;
+import com.sep.UniTrips.R;
 
 public class SignUpTaskManager {
 
@@ -109,10 +107,21 @@ public class SignUpTaskManager {
                     //Toast.makeText(SignInActivity.this, R.string.sign_fail_message,Toast.LENGTH_LONG).show();
                     Log.d("create account fail", "onComplete: create account fail");
                     mPresenter.updateUI(null);
+                    try{
+                        throw task.getException();
+                    }
+                     catch (FirebaseAuthUserCollisionException exception)
+                    {
+                        Log.d("email exception", "onComplete: exist_email");
+                        mPresenter.showSignUpError(mContext.getString(R.string.existEmailError));
+
+                    } catch (Exception e) {
+                        Log.d("exception", "onComplete: " + e.getMessage());
+                    }
                 }else{
                     //login success, update the ui with the signed-in user's information
                     //Toast.makeText(SignInActivity.this, "Login successful",Toast.LENGTH_LONG).show();
-                    Log.d("create account success","CREATE ACCOUNT SUCCESSFUL");
+                    //Log.d("create account success","CREATE ACCOUNT SUCCESSFUL");
                     FirebaseUser user = mAuth.getCurrentUser();
                     mPresenter.updateUI(user);
                 }

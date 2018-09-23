@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseUser;
 import com.sep.UniTrips.model.SignUpModel.SignUpInterface;
 import com.sep.UniTrips.presenter.SignUpPresenter;
-import com.sep.tmsdemo.R;
+import com.sep.UniTrips.R;
 
 /**
  * A login screen that offers login via email/password.
@@ -109,8 +109,12 @@ public class SignUpActivity extends AppCompatActivity  implements SignUpInterfac
         }
     }
 
+    @Override
+    public void showSignUpError(String errorMessage){
+        Toast.makeText(this,errorMessage,Toast.LENGTH_SHORT).show();
+    }
 
-//    /**
+    //    /**
 //     * Shows the progress UI and hides the login form.
 //     */
 //    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)

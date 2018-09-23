@@ -16,6 +16,7 @@ public interface SignUpInterface {
         void updateUI(FirebaseUser user);
         void restError();
         void attemptCreateAccount(String email,String password,String confirmPassword);
+        void showSignUpError(String errorMessage);
     }
 
     interface view{
@@ -26,5 +27,6 @@ public interface SignUpInterface {
         void restError();
         //UpdateUI according to the current user
         void updateUI(FirebaseUser currentUser);
+        void showSignUpError(String errorMessage);
     }
 }
