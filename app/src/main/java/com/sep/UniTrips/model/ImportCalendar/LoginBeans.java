@@ -14,20 +14,20 @@ public class LoginBeans {
     @SerializedName("token")
     private String mToken;
 
-    public void setmSuccess(String mSuccess) {
+    public void setSuccess(String mSuccess) {
         this.mSuccess = mSuccess;
     }
 
-    public void setmToken(String mToken) {
+    public void setToken(String mToken) {
         this.mToken = mToken;
     }
 
-    public String getmSuccess() {
+    public String getSuccess() {
 
         return mSuccess;
     }
 
-    public String getmToken() {
+    public String getToken() {
         return mToken;
     }
 }
